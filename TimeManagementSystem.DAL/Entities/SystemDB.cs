@@ -7,8 +7,8 @@ namespace TimeManagementSystem.DAL.Entities
 
     public partial class SystemDB : DbContext
     {
-        public SystemDB()
-            : base("name=SystemDB")
+        public SystemDB(string connectionString)
+            : base( connectionString)
         {
         }
 

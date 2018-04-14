@@ -11,8 +11,10 @@ namespace TimeManagementSystem.DAL.Repositories
 {
     class ProjectRepository : IRepository<Project>
     {
+       
         private SystemDB db;
 
+       
         public ProjectRepository(SystemDB db)
         {
             this.db = db;

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace TimeManagementSystem.BLL.Interfaces
 {
-    class ProjectService
+    interface IProjectService
     {
+        void AddProject(string name, string abbreviation, string Description, string Effort, string Timeline, string Milestone, DateTime InitialDate);
     }
 }

@@ -10,6 +10,13 @@ namespace TimeManagementSystem.DAL.Repositories
 {
     class UnitOfWork : IUnitOfWork
     {
+        private SystemDB db;
+        private ProjectRepository projectRepository;
+
+        public UnitOfWork(string connectionString)
+        {
+            db = new SystemDB(connectionString);
+        }
         public IRepository<Activity> Activities
         {
             get
@@ -38,7 +45,9 @@ namespace TimeManagementSystem.DAL.Repositories
         {
             get
             {
-                throw new NotImplementedException();
+                if (projectRepository == null)
+                    projectRepository = new ProjectRepository(db);
+                return projectRepository;
             }
         }
 
