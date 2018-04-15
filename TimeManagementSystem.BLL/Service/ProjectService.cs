@@ -21,30 +21,25 @@ namespace TimeManagementSystem.BLL.Service
         {
             Database = UoW;
         }
-        public void AddProject(string name, string abbreviation, string Description, string Effort, string Timeline, string Milestone, DateTime InitialDate)
+        public void AddProject(ProjectDTO project)
         {
             try
             {
-                var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Project, ProjectDTO>()).CreateMapper();
-                var ListOfProjects = mapper.Map<IEnumerable<Project>, List<ProjectDTO>>(Database.Projects.GetAll());
+                var mapper = new MapperConfiguration(cfg => {
+                    cfg.CreateMap<Project, ProjectDTO>();
+                    cfg.CreateMap<ProjectDTO, Project>();
+                    }).CreateMapper();
+                var ListOfProjects = mapper.Map<IEnumerable<Project>, List<ProjectDTO>>(Database.Projects.GetAll());           
                 foreach (var item in ListOfProjects)
                 {
-                    if (item.Name == name) throw new ValidationException("Name must be unique", "Error");
-                    if (item.Abbreviation == abbreviation) throw new ValidationException("Abbreviation must be unique", "Error");
+                    if (item.Name == project.Name) throw new ValidationException("Name must be unique", "Error");
+                    if (item.Abbreviation == project.Abbreviation) throw new ValidationException("Abbreviation must be unique", "Error");
                 }
-                Project project = new Project()
-                  { Name = name,
-                    Abbreviation = abbreviation,
-                    Description = Description,
-                    InitialEffort = Effort,
-                    InitialTimeline = Timeline,
-                    InitialMilestones = Milestone,
-                    InitialDate = InitialDate };
-                Database.Projects.Create(project);
+                Database.Projects.Create(mapper.Map<ProjectDTO,Project>(project));
             }
-            catch
+            catch(Exception ex)
             {
-
+                throw;
             }
         }
     }

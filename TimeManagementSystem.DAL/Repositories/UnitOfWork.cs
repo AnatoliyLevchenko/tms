@@ -8,10 +8,11 @@ using TimeManagementSystem.DAL.Interfaces;
 
 namespace TimeManagementSystem.DAL.Repositories
 {
-    class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private SystemDB db;
-        private ProjectRepository projectRepository;
+        private SqlRepository<Project> projectRepository;
+        private SqlRepository<Activity> activityRepository;
 
         public UnitOfWork(string connectionString)
         {
@@ -46,7 +47,7 @@ namespace TimeManagementSystem.DAL.Repositories
             get
             {
                 if (projectRepository == null)
-                    projectRepository = new ProjectRepository(db);
+                    projectRepository = new SqlRepository<Project>(db);
                 return projectRepository;
             }
         }

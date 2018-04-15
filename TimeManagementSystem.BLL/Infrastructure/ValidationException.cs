@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace TimeManagementSystem.BLL.Infrastructure
 {
-    class ValidationException: Exception
+    class ValidationException : Exception
     {
         public string MyProperty { get; set; }
-        public ValidationException(string message, string prop): base(message)
+        public ValidationException(string message, string prop) : base(message)
         {
             MyProperty = prop;
+        }
+    }
+}
