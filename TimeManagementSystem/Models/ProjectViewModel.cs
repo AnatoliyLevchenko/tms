@@ -10,6 +10,7 @@ namespace TimeManagementSystem.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Abbreviation { get; set; }
+        public string Description { get; set; }
         public string InitialEffort { get; set; }
         public string InitialMilestones { get; set; }
         public DateTime InitialDate { get; set; }

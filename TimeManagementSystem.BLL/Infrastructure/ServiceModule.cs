@@ -18,6 +18,7 @@ namespace TimeManagementSystem.BLL.Infrastructure
         {
             Bind<IUnitOfWork>().To<UnitOfWork>().WithConstructorArgument(connectionString);
             Bind<IProjectService>().To<ProjectService>();
+            Bind<IProjectsListService>().To<ProjectsListService>();
         }
     }
 }

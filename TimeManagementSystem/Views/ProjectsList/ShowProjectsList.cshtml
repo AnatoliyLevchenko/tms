@@ -1,0 +1,26 @@
+﻿@model TimeManagementSystem.Models.ProjectViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowProjectsList</title>
+</head>
+<body>
+    <div> 
+       <h1>ProjectList</h1>
+    </div>
+    @foreach(var item in ViewBag.MyList)
+    {
+        <a></a><div class="project">
+            <div class="project_name">item.Name</div>
+            <div class="project_name">item.Abbreviation</div>
+        </div><a>
+    }
+</body>
+</html>

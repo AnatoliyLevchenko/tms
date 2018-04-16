@@ -21,8 +21,10 @@ namespace TimeManagementSystem
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            var kernel = new StandardKernel(new ServiceModule("connectionString"));
+
+            var kernel = new StandardKernel(new ServiceModule("DbContext"));
             DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
+            kernel.Unbind<ModelValidatorProvider>();
         }
     }
 }
