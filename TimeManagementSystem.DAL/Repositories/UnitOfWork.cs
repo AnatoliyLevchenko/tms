@@ -12,6 +12,15 @@ namespace TimeManagementSystem.DAL.Repositories
     {
         private SystemDB _db;
         private ProjectRepository _projectRepository;
+        private ActivitiesInProjectRepository _activitiesInProjectRepository;
+        private ActivityRepository _activityRepository;
+        private PersonRepository _personRepository;
+        private ReportRepository _reportRepository;
+        private RiskRepository _riskRepository;
+        private RoleRepostory _roleRepository;
+        private StatusRepository _statusRepository;
+        private TaskRepository _taskRepository;
+        private TeammateRepository _teammateRepository;
 
         public UnitOfWork(string connectionString)
         {
@@ -21,7 +30,8 @@ namespace TimeManagementSystem.DAL.Repositories
         {
             get
             {
-                throw new NotImplementedException();
+                (_activityRepository == null) ? (_activityRepository = new ActivityRepository(_db));
+                return _activityRepository;
             }
         }
 
@@ -29,7 +39,8 @@ namespace TimeManagementSystem.DAL.Repositories
         {
             get
             {
-                throw new NotImplementedException();
+                (_activitiesInProjectRepository == null) ? (_activitiesInProjectRepository = new ActivitiesInProjectRepository(_db));
+                return _activitiesInProjectRepository;
             }
         }
 
@@ -37,7 +48,8 @@ namespace TimeManagementSystem.DAL.Repositories
         {
             get
             {
-                throw new NotImplementedException();
+                (_personRepository == null)?(_personRepository = new PersonRepository(_db));
+                return _personRepository;
             }
         }
 
@@ -55,7 +67,8 @@ namespace TimeManagementSystem.DAL.Repositories
         {
             get
             {
-                throw new NotImplementedException();
+                (_reportRepository == null) ? (_reportRepository = new ReportRepository(_db));
+                return _reportRepository;
             }
         }
 
@@ -63,7 +76,8 @@ namespace TimeManagementSystem.DAL.Repositories
         {
             get
             {
-                throw new NotImplementedException();
+                (_riskRepository == null) ? (_riskRepository = new RiskRepository(_db));
+                return _riskRepository;
             }
         }
 
@@ -71,15 +85,17 @@ namespace TimeManagementSystem.DAL.Repositories
         {
             get
             {
-                throw new NotImplementedException();
+                (_roleRepository == null) ? (_roleRepository = new RoleRepostory(_db));
+                return _roleRepository;
             }
         }
 
-        public IRepository<Status> Statutes
+        public IRepository<Status> Statuses
         {
             get
             {
-                throw new NotImplementedException();
+                (_statusRepository == null) ? (_statusRepository = new StatusRepository(db));
+                return _statusRepository;
             }
         }
 
@@ -87,7 +103,8 @@ namespace TimeManagementSystem.DAL.Repositories
         {
             get
             {
-                throw new NotImplementedException();
+                (_taskRepository == null) ? (_taskRepository = new TaskRepository(_db));
+                return _taskRepository;
             }
         }
 
@@ -95,18 +112,34 @@ namespace TimeManagementSystem.DAL.Repositories
         {
             get
             {
-                throw new NotImplementedException();
+                (_teammateRepository == null) ? (_teammateRepository = new TeammateRepository(_db));
+                return _teammateRepository;
+            }
+        }
+
+        private bool disposed = false;
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    _db.Dispose();
+                }
+                this.disposed = true;
             }
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         public void Save()
         {
-            throw new NotImplementedException();
+            _db.SaveChanges();
         }
     }
 }

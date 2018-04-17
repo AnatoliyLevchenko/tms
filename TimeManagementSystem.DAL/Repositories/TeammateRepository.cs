@@ -9,37 +9,36 @@ using TimeManagementSystem.DAL.Interfaces;
 
 namespace TimeManagementSystem.DAL.Repositories
 {
-    class RiskRepository : IRepository<Risk>
+    class TeammateRepository : IRepository<Teammate>
     {
         SystemDB db;
-        public RiskRepository(SystemDB db)
+        public TeammateRepository(SystemDB db)
         {
             this.db = db;
         }
-
-        public void Create(Risk item)
+        public void Create(Teammate item)
         {
-            db.Risks.Add(item);
+            db.Teammates.Add(item);
             db.SaveChanges();
         }
 
-        public void Delete(Risk item)
+        public void Delete(Teammate item)
         {
-            db.Risks.Remove(item);
+            db.Teammates.Remove(item);
             db.SaveChanges();
         }
 
-        public Risk Get(Func<Risk, bool> filter)
+        public Teammate Get(Func<Teammate, bool> filter)
         {
-            return db.Risks.Find(filter);
+            return db.Teammates.Find(filter);
         }
 
-        public IEnumerable<Risk> GetAll()
+        public IEnumerable<Teammate> GetAll()
         {
-            return db.Risks;
+            return db.Teammates;
         }
 
-        public void Update(Risk item)
+        public void Update(Teammate item)
         {
             db.Entry(item).State = EntityState.Modified;
             db.SaveChanges();

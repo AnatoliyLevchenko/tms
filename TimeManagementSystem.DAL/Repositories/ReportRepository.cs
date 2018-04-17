@@ -21,11 +21,13 @@ namespace TimeManagementSystem.DAL.Repositories
         public void Create(Report item)
         {
             db.Reports.Add(item);
+            db.SaveChanges();
         }
 
         public void Delete(Report item)
         {
             db.Reports.Remove(item);
+            db.SaveChanges();
         }
 
         public Report Get(Func<Report, bool> filter)
@@ -41,6 +43,7 @@ namespace TimeManagementSystem.DAL.Repositories
         public void Update(Report item)
         {
             db.Entry(item).State = EntityState.Modified;
+            db.SaveChanges();
         }
     }
 }

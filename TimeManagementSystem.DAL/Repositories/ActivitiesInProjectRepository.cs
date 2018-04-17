@@ -9,21 +9,23 @@ using TimeManagementSystem.DAL.Interfaces;
 
 namespace TimeManagementSystem.DAL.Repositories
 {
-    class ActivitiesInProjectRpository : IRepository<ActivitiesInProject>
+    class ActivitiesInProjectRepository : IRepository<ActivitiesInProject>
     {
         private SystemDB db;
-        public ActivitiesInProjectRpository(SystemDB db)
+        public ActivitiesInProjectRepository(SystemDB db)
         {
             this.db = db;
         }
         public void Create(ActivitiesInProject item)
         {
             db.ActivitiesInProjects.Add(item);
+            db.SaveChanges();
         }
 
         public void Delete(ActivitiesInProject item)
         {
             db.ActivitiesInProjects.Remove(item);
+            db.SaveChanges();
         }
 
         public ActivitiesInProject Get(Func<ActivitiesInProject, bool> filter)
@@ -39,6 +41,7 @@ namespace TimeManagementSystem.DAL.Repositories
         public void Update(ActivitiesInProject item)
         {
             db.Entry(item).State = EntityState.Modified;
+            db.SaveChanges();
         }
     }
 }

@@ -3,43 +3,41 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using TimeManagementSystem.DAL.Entities;
 using TimeManagementSystem.DAL.Interfaces;
 
 namespace TimeManagementSystem.DAL.Repositories
 {
-    class RiskRepository : IRepository<Risk>
+    class TaskRepository : IRepository<Task>
     {
         SystemDB db;
-        public RiskRepository(SystemDB db)
+        public TaskRepository(SystemDB db)
         {
             this.db = db;
         }
-
-        public void Create(Risk item)
+        public void Create(Task item)
         {
-            db.Risks.Add(item);
+            db.Tasks.Add(item);
             db.SaveChanges();
         }
 
-        public void Delete(Risk item)
+        public void Delete(Task item)
         {
-            db.Risks.Remove(item);
+            db.Tasks.Remove(item);
             db.SaveChanges();
         }
 
-        public Risk Get(Func<Risk, bool> filter)
+        public Task Get(Func<Task, bool> filter)
         {
-            return db.Risks.Find(filter);
+            return db.Tasks.Find(filter);
         }
 
-        public IEnumerable<Risk> GetAll()
+        public IEnumerable<Task> GetAll()
         {
-            return db.Risks;
+            return db.Tasks;
         }
 
-        public void Update(Risk item)
+        public void Update(Task item)
         {
             db.Entry(item).State = EntityState.Modified;
             db.SaveChanges();

@@ -19,11 +19,13 @@ namespace TimeManagementSystem.DAL.Repositories
         public void Create(Activity item)
         {
             db.Activities.Add(item);
+            db.SaveChanges();
         }
 
         public void Delete(Activity item)
         {
             db.Activities.Remove(item);
+            db.SaveChanges();
         }
 
         public Activity Get(Func<Activity, bool> filter)
@@ -39,6 +41,7 @@ namespace TimeManagementSystem.DAL.Repositories
         public void Update(Activity item)
         {
             db.Entry(item).State = EntityState.Modified;
+            db.SaveChanges();
         }
     }
 }

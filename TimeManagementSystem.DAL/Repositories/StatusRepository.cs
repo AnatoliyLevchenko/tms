@@ -9,37 +9,36 @@ using TimeManagementSystem.DAL.Interfaces;
 
 namespace TimeManagementSystem.DAL.Repositories
 {
-    class RiskRepository : IRepository<Risk>
+    class StatusRepository : IRepository<Status>
     {
         SystemDB db;
-        public RiskRepository(SystemDB db)
+        public StatusRepository(SystemDB db)
         {
             this.db = db;
         }
-
-        public void Create(Risk item)
+        public void Create(Status item)
         {
-            db.Risks.Add(item);
+            db.Status.Add(item);
             db.SaveChanges();
         }
 
-        public void Delete(Risk item)
+        public void Delete(Status item)
         {
-            db.Risks.Remove(item);
+            db.Status.Add(item);
             db.SaveChanges();
         }
 
-        public Risk Get(Func<Risk, bool> filter)
+        public Status Get(Func<Status, bool> filter)
         {
-            return db.Risks.Find(filter);
+            return db.Status.Find(filter);
         }
 
-        public IEnumerable<Risk> GetAll()
+        public IEnumerable<Status> GetAll()
         {
-            return db.Risks;
+            return db.Status;
         }
 
-        public void Update(Risk item)
+        public void Update(Status item)
         {
             db.Entry(item).State = EntityState.Modified;
             db.SaveChanges();

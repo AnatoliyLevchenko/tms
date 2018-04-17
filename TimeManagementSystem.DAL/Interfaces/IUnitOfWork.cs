@@ -16,7 +16,7 @@ namespace TimeManagementSystem.DAL.Interfaces
         IRepository<Report> Reports { get; }
         IRepository<Risk> Risks { get; }
         IRepository<Role> Roles { get; }
-        IRepository<Status> Statutes { get; }
+        IRepository<Status> Statuses { get; }
         IRepository <Entities.Task> Tasks { get; }
         IRepository <Teammate> Teammates { get; }
 

@@ -69,14 +69,17 @@
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\ActivitiesInProjectRpository.cs" />
+    <Compile Include="Repositories\ActivitiesInProjectRepository.cs" />
     <Compile Include="Repositories\ActivityRepository.cs" />
     <Compile Include="Repositories\PersonRepository.cs" />
     <Compile Include="Repositories\ProjectRepository.cs" />
     <Compile Include="Repositories\ReportRepository.cs" />
     <Compile Include="Repositories\RiskRepository.cs" />
+    <Compile Include="Repositories\RoleRepostory.cs" />
+    <Compile Include="Repositories\StatusRepository.cs" />
+    <Compile Include="Repositories\TaskRepository.cs" />
+    <Compile Include="Repositories\TeammateRepository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
-    <Compile Include="TimeManagementSystem\DAL\Interfaces\IRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -19,11 +19,13 @@ namespace TimeManagementSystem.DAL.Repositories
         public void Create(Project item)
         {
             db.Projects.Add(item);
+            db.SaveChanges();
         }
 
         public void Delete(Project item)
         {
             db.Projects.Remove(item);
+            db.SaveChanges();
         }
 
         public Project Get(Func<Project, bool> filter)
@@ -39,6 +41,7 @@ namespace TimeManagementSystem.DAL.Repositories
         public void Update(Project item)
         {
             db.Entry(item).State = EntityState.Modified;
+            db.SaveChanges();
         }
     }
 }
