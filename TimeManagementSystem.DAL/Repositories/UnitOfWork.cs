@@ -30,8 +30,7 @@ namespace TimeManagementSystem.DAL.Repositories
         {
             get
             {
-                (_activityRepository == null) ? (_activityRepository = new ActivityRepository(_db));
-                return _activityRepository;
+                return (_activityRepository == null) ? (_activityRepository = new ActivityRepository(_db)):_activityRepository;
             }
         }
 
@@ -39,8 +38,7 @@ namespace TimeManagementSystem.DAL.Repositories
         {
             get
             {
-                (_activitiesInProjectRepository == null) ? (_activitiesInProjectRepository = new ActivitiesInProjectRepository(_db));
-                return _activitiesInProjectRepository;
+                return(_activitiesInProjectRepository == null) ? (_activitiesInProjectRepository = new ActivitiesInProjectRepository(_db)):_activitiesInProjectRepository;
             }
         }
 
@@ -48,8 +46,7 @@ namespace TimeManagementSystem.DAL.Repositories
         {
             get
             {
-                (_personRepository == null)?(_personRepository = new PersonRepository(_db));
-                return _personRepository;
+                return (_personRepository == null)?(_personRepository = new PersonRepository(_db)):_personRepository;
             }
         }
 
@@ -67,8 +64,7 @@ namespace TimeManagementSystem.DAL.Repositories
         {
             get
             {
-                (_reportRepository == null) ? (_reportRepository = new ReportRepository(_db));
-                return _reportRepository;
+                return (_reportRepository == null) ? (_reportRepository = new ReportRepository(_db)):_reportRepository;
             }
         }
 
@@ -76,8 +72,7 @@ namespace TimeManagementSystem.DAL.Repositories
         {
             get
             {
-                (_riskRepository == null) ? (_riskRepository = new RiskRepository(_db));
-                return _riskRepository;
+                return (_riskRepository == null) ? (_riskRepository = new RiskRepository(_db)):_riskRepository;
             }
         }
 
@@ -85,8 +80,7 @@ namespace TimeManagementSystem.DAL.Repositories
         {
             get
             {
-                (_roleRepository == null) ? (_roleRepository = new RoleRepostory(_db));
-                return _roleRepository;
+                return (_roleRepository == null) ? (_roleRepository = new RoleRepostory(_db)):_roleRepository;
             }
         }
 
@@ -94,8 +88,7 @@ namespace TimeManagementSystem.DAL.Repositories
         {
             get
             {
-                (_statusRepository == null) ? (_statusRepository = new StatusRepository(db));
-                return _statusRepository;
+                return (_statusRepository == null) ? (_statusRepository = new StatusRepository(_db)): _statusRepository;
             }
         }
 
@@ -103,8 +96,7 @@ namespace TimeManagementSystem.DAL.Repositories
         {
             get
             {
-                (_taskRepository == null) ? (_taskRepository = new TaskRepository(_db));
-                return _taskRepository;
+                return (_taskRepository == null) ? (_taskRepository = new TaskRepository(_db)): _taskRepository;
             }
         }
 
@@ -112,8 +104,7 @@ namespace TimeManagementSystem.DAL.Repositories
         {
             get
             {
-                (_teammateRepository == null) ? (_teammateRepository = new TeammateRepository(_db));
-                return _teammateRepository;
+                return (_teammateRepository == null) ? (_teammateRepository = new TeammateRepository(_db)): _teammateRepository;
             }
         }
 

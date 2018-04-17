@@ -16,9 +16,6 @@ namespace TimeManagementSystem.DAL.Entities
             Tasks = new HashSet<Task>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Id { get; set; }
-
         [Required]
         [StringLength(30)]
         public string Role { get; set; }
