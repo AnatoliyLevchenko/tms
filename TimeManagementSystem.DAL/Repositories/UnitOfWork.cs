@@ -10,13 +10,12 @@ namespace TimeManagementSystem.DAL.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private SystemDB db;
-        private SqlRepository<Project> projectRepository;
-        private SqlRepository<Activity> activityRepository;
+        private SystemDB _db;
+        private ProjectRepository _projectRepository;
 
         public UnitOfWork(string connectionString)
         {
-            db = new SystemDB(connectionString);
+            _db = new SystemDB(connectionString);
         }
         public IRepository<Activity> Activities
         {
@@ -46,9 +45,9 @@ namespace TimeManagementSystem.DAL.Repositories
         {
             get
             {
-                if (projectRepository == null)
-                    projectRepository = new SqlRepository<Project>(db);
-                return projectRepository;
+                if (_projectRepository == null)
+                    _projectRepository = new ProjectRepository(_db);
+                return _projectRepository;
             }
         }
 

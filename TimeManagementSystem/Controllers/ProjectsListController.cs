@@ -23,9 +23,8 @@ namespace TimeManagementSystem.Controllers
         {
             var mapper = new MapperConfiguration(cfg => cfg.CreateMap<ProjectDTO, ProjectViewModel>()).CreateMapper();
             List<ProjectViewModel> projectsList = mapper.Map<IEnumerable<ProjectDTO>,List<ProjectViewModel>>(projectsListService.ShowAllProjects());
-            ViewBag.MyList = new List<ProjectViewModel>();
-            ViewBag.MyList = projectsList;
-            return View();
+            
+            return View(projectsList);
         }
     }
 }

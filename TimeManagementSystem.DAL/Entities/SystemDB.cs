@@ -14,7 +14,7 @@ namespace TimeManagementSystem.DAL.Entities
 
         public virtual DbSet<Activity> Activities { get; set; }
         public virtual DbSet<ActivitiesInProject> ActivitiesInProjects { get; set; }
-        public virtual DbSet<Person> People { get; set; }
+        public virtual DbSet<Person> Persons { get; set; }
         public virtual DbSet<Project> Projects { get; set; }
         public virtual DbSet<Report> Reports { get; set; }
         public virtual DbSet<Risk> Risks { get; set; }
